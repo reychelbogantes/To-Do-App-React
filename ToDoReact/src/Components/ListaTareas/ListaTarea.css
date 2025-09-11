@@ -1,0 +1,146 @@
+/* --- Contenedor principal --- */
+.container-listas {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #feffffeb;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+--- Línea divisoria ---
+#linea {  
+  border: none; 
+  height: 2px; 
+  background: #000000; 
+  margin: 20px 0; 
+}
+
+/* --- Contadores arriba --- */
+.container-contadores {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+/* --- Grid para columnas --- */
+.container-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columnas iguales */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* --- Sección Pendientes y Completadas --- */
+.container-lista-pendientes,
+.container-lista-completadas {
+  padding: 15px;
+  border-radius: 8px;
+  background: #b5e3ea57;
+  border: 1px solid #e0e0e000;
+}
+
+/* Títulos */
+.container-lista-pendientes h2,
+.container-lista-completadas h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* --- Cada tarea --- */
+.container-lista-pendientes div > div,
+.container-lista-completadas div > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffffa8;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* --- Texto de la tarea --- */
+.container-lista-pendientes span,
+.container-lista-completadas span {
+  flex: 1;
+  margin-right: 10px;
+  font-size: 16px;
+  color: #444;
+}
+
+/* --- Botones --- */
+button {
+  margin-left: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+
+/* --- Responsivo --- */
+@media (max-width: 768px) {
+  .container-columnas {
+    grid-template-columns: 1fr; /* en pantallas pequeñas se apilan */
+  }
+
+  .container-lista-pendientes div > div,
+  .container-lista-completadas div > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  button {
+    margin: 6px 0 0 0;
+    width: 100%;
+  }
+}
+
+.VPendientes{
+  background: #c16de8; /* morado */
+  color: white;
+}
+.Completadas{
+  background: #1ea8a1; /* verde agua */
+  color: white;
+}
+---------------------------
+/* Botones estilo emoji */
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 26px; /* tamaño del emoji */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* círculo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  background-color: transparent; /* fondo transparente */
+  transition: transform 0.2s;
+}
+
+/* Animación al pasar el mouse */
+button:hover {
+  transform: scale(1.2);
+}
+
+/* Editar */
+button.Editar::after {
+  content: "✏️";
+}
+
+/* Eliminar */
+button.Eliminar::after {
+  content: "🗑️";
+}

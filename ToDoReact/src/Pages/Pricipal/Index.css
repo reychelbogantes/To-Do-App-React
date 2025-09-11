@@ -1,0 +1,37 @@
+/* Fondo general */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(144deg,#bd6bf8, #5a42f385 50%,#3be7eaa8);  /* fallback for old browsers */
+  min-height: 100vh;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #f3f3f3;
+  letter-spacing: 1px;
+  text-transform: uppercase; 
+  padding-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #f3f3f3;
+  margin-top: 20px;
+} 
+footer a {
+  color: #f3f3f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer a:hover {
+  text-decoration: underline;
+} 
+

@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'creditverse_font';
+  src: url('../../assets/font/creditverse_font.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Header.css */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;              /* separación entre logo y texto */
+  padding: 15px 20px;
+  background: #00000000;    /* gris muy claro */
+  border-bottom: 2px solid #e0e0e000;
+}
+
+#Logo {
+  width: 9%;            /* ajusta el tamaño del logo */
+  height: auto;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;           
+  margin: 0;
+  font-family: 'creditverse_font'; /* Fuente personalizada */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para mejorar la legibilidad */ 
+}
