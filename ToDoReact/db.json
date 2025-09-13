@@ -1,4 +1,48 @@
 {
+  "Usuarios": [
+    {
+      "id": "fec7",
+      "username": "Reychel Fallas",
+      "email": "rfallasbfwd@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "0867",
+      "username": "Reychelb",
+      "email": "RFALLASBFWD@GMAIL.COM",
+      "password": "123"
+    },
+    {
+      "id": "6045",
+      "username": "S",
+      "email": "s",
+      "password": "1234"
+    },
+    {
+      "id": "6210",
+      "username": "ndmdssm",
+      "email": "ghjkkkss",
+      "password": "12"
+    },
+    {
+      "id": "d9e1",
+      "username": "kaka",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "c17b",
+      "username": "Maria",
+      "email": "86819901",
+      "password": ""
+    },
+    {
+      "id": "b417",
+      "username": "Reychel ",
+      "email": "reychelfallasbogantes@gmail.com",
+      "password": "12345685"
+    }
+  ],
   "Tareas": [
     {
       "id": "38ad",
@@ -29,6 +73,18 @@
       "id": "d1ce",
       "titulo": "Comer",
       "completada": false
+    },
+    {
+      "id": "3a1c",
+      "titulo": "Hacer comida",
+      "completada": false,
+      "username": "Reychel Fallas"
+    },
+    {
+      "id": "cb6f",
+      "titulo": "yyyyy",
+      "completada": false,
+      "username": "S"
     }
   ]
 }

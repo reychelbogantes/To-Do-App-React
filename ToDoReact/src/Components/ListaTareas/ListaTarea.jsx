@@ -9,57 +9,67 @@ function ListaTarea() {
   const [Tareas, setTareas] = React.useState([]);
   const [alerta, setAlerta] = React.useState(null);
 
-  React.useEffect(() => {
-    fetchTareas();
-  }, []);
-  // Función para obtener las tareas desde el servicio
-  const fetchTareas = async () => {
+   // Función para obtener las tareas desde el servicio
+   const fetchTareas = async () => {
     try {
       const data = await GetTareas();
-      setTareas(data);
+
+      const userData = localStorage.getItem("usuarioLogueado");
+      const usuarioLog = userData ? JSON.parse(userData) : null;
+
+      if (usuarioLog) {
+        const tareasUsuario = data.filter(
+          (t) => t.username === usuarioLog.username
+        );
+        setTareas(tareasUsuario);
+      } else {
+        setTareas([]);
+      }
     } catch (error) {
       console.error("Error fetching Tareas:", error);
     }
   };
-  // --- Editar con prompt personalizado ---
+
+  React.useEffect(() => {
+    fetchTareas();
+  }, []);
+
   const BtnEditar = (tarea) => {
   setAlerta({
-    tipo: "prompt",
+    tipo: "prompt", // tipo prompt para editar
     mensaje: "Editar tarea:",
     valorInicial: tarea.titulo,
     onConfirm: async (nuevoTitulo) => {
       if (nuevoTitulo.trim() !== "") {
-        // ✅ Guardar si no está vacío
         const tareaEditada = { ...tarea, titulo: nuevoTitulo.trim() };
         await editarTarea(tarea.id, tareaEditada);
         fetchTareas();
-        setAlerta(null); // cerrar solo si todo va bien
+        setAlerta(null); // cerrar alerta
       } else {
-        // Mostrar alerta si está vacío
         setAlerta({
           tipo: "alert",
           mensaje: "❌ El título no puede estar vacío",
-          onConfirm: () => setAlerta(null)
+          onConfirm: () => setAlerta(null),
         });
       }
     },
-    onCancel: () => setAlerta(null)
-    });
-   };
+    onCancel: () => setAlerta(null),
+  });
+};
 
-  // --- Eliminar con confirm personalizado ---
-  const BtnEliminar = (id) => {
-    setAlerta({
-      tipo: "confirm",
-      mensaje: "¿Seguro que quieres eliminar esta tarea?",
-      onConfirm: async () => {
-        await eliminarTarea(id);
-        fetchTareas();
-        setAlerta(null);
-      },
-      onCancel: () => setAlerta(null)
-    });
-  };
+
+const BtnEliminar = (id) => {
+  setAlerta({
+    tipo: "confirm", // tipo confirm
+    mensaje: "¿Seguro que quieres eliminar esta tarea?",
+    onConfirm: async () => {
+      await eliminarTarea(id);
+      fetchTareas();
+      setAlerta(null);
+    },
+    onCancel: () => setAlerta(null),
+  });
+};
 
 
 
