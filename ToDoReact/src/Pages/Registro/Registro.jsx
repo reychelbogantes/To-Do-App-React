@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from "react"; 
 import { Link, useNavigate } from 'react-router-dom';
 import { postUsers, GetUsers } from '../../services/Servicios'; 
 import './Registro.css'
 
+
+
 function Registro() {
-    const [username, setUsername] = React.useState("");
+   useEffect(() => {
+    const link = document.querySelector("link[rel~='icon']");
+    if (link) link.href = "/favicon-32x32.png"; // nuevo favicon
+    document.title = "Registro | To Do List";
+  }, []);
+
+
+  const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState(""); 
   const [mensaje, setMensaje] = React.useState("");
@@ -71,6 +80,7 @@ function Registro() {
 
   return (
     <div>
+    
         <div className="form-container">
             <h2>Registro de Usuario</h2>
 
@@ -79,7 +89,7 @@ function Registro() {
             <input type="email" id="email" name="email" placeholder='📧Correo Electronico' required value={email} onChange={e => setEmail(e.target.value)} /><br />
             
             <input type="password" id="password" name="password"  placeholder='🔒 Contraseña' required value={password}  onChange={e => setPassword(e.target.value)} /><br />
-            <button onClick={PostarRegistra} type="submit">Registrarse </button>
+            <button className="btnRegistrarse" onClick={PostarRegistra} type="submit">Registrarse </button>
             <p>¿Ya estás registrado? <br />Puedes ir a <Link to="/Login">iniciar sesión</Link></p>
              
             

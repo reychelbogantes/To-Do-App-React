@@ -116,12 +116,6 @@ async function eliminarTarea(id) {
   }
 }
 
-export {
-  postTareas,GetTareas,
-  completarTarea, volverAPendientes,
-  editarTarea, eliminarTarea,
-};
-
 // --- Registro de usuario ---
 async function postUsers(username,email,password) {
     try {
@@ -171,4 +165,22 @@ async function GetUsers(username,password) {
     }
 }
 
-export{postUsers,GetUsers}
+
+// --- PATCH: Cambiar contraseña de usuario ---
+async function cambiarPassword(id, nuevaPassword) {
+  try {
+    const response = await fetch(`http://localhost:3000/Usuarios/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: nuevaPassword }),
+    });
+
+    if (!response.ok) throw new Error("Error al cambiar contraseña");
+    return await response.json();
+  } catch (error) {
+    console.error("Error en cambiarPassword:", error);
+    throw error;
+  }
+}
+
+export { postTareas, GetTareas, completarTarea, volverAPendientes, editarTarea, eliminarTarea, postUsers, GetUsers, cambiarPassword };

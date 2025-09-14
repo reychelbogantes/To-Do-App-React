@@ -50,11 +50,12 @@ body {
 }
 
 
+
 /* Botón */
 .form-container button {
     width: 100%;
     padding: 12px;
-    background-color: #28a745;
+    background-color: #34d5cd;
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -64,7 +65,7 @@ body {
 }
 
 .form-container button:hover {
-    background-color: #218838;
+    background-color: #1ea8a1;
     transform: translateY(-2px);
 }
 
@@ -93,3 +94,4 @@ body {
 .mensaje.error {
   color: red;
 }
+
